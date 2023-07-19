@@ -9,6 +9,6 @@
   },
   "scripts": {
     "build": "rm -rf dist && rm -rf project && node ../../../scripts/project-build.js --project ./project.json",
-    "verify": ""
+    "verify": "node ../../../scripts/project-verify.js --project ./project.json"
   }
 }

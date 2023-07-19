@@ -1,3 +1,4 @@
+const { log } = require('./__utils__')
 const { promisify } = require('util')
 const fs = require('fs')
 const path = require('path')
@@ -25,29 +26,29 @@ async function exec(cmd, options) {
   return execPromise
 }
 
-async function cloneProject(json) {
-  const url = json.repository.url
-  const commit = json.repository.commit
+async function cloneProject(project) {
+  const url = project.repository.url
+  const commit = project.repository.commit
 
   const cloneCmd = `git clone --depth=1 ${url} project`
   const checkoutCmd = `git fetch --depth=1 origin ${commit} && git checkout ${commit}`
 
-  console.log('$', cloneCmd)
+  log(project, '$', cloneCmd)
   await exec(cloneCmd)
 
-  console.log('$', checkoutCmd)
+  log(project, '$', checkoutCmd)
   await exec(checkoutCmd, { cwd: __gitproject })
 }
 
-async function buildCode(json) {
-  const buildCmd = json.build
+async function buildCode(project) {
+  const buildCmd = project.build
 
-  console.log('$', buildCmd)
+  log(project, '$', buildCmd)
   await exec(buildCmd, { cwd: __gitproject })
 }
 
-async function copyBundle(json) {
-  const manifestPath = path.join(__gitproject, json.manifest)
+async function copyBundle(project) {
+  const manifestPath = path.join(__gitproject, project.manifest)
   const manifestDir = path.dirname(manifestPath)
   const manifest = require(manifestPath)
   
@@ -60,16 +61,16 @@ async function copyBundle(json) {
 
   const copyCmd = `cp ${manifestPath} ${include.join(' ')} ${distDir}`
 
-  console.log('$', copyCmd)
+  log(project, '$', copyCmd)
   await exec(copyCmd, { cwd: __gitproject })
 }
 
 async function build(file) {
-  const json = require(path.join(__execdirname, file))
+  const project = require(path.join(__execdirname, file))
 
-  await cloneProject(json)
-  await buildCode(json)
-  await copyBundle(json)
+  await cloneProject(project)
+  await buildCode(project)
+  await copyBundle(project)
 }
 
 let args = process.argv.slice(2)
