@@ -1,0 +1,14 @@
+{
+  "name": "@airgap-community/iso-rootstock",
+  "version": "1.0.0",
+  "description": "Rootstock community isolated module.",
+  "homepage": "https://rootstock.io/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airgap-it/airgap-community"
+  },
+  "scripts": {
+    "build": "rm -rf dist && rm -rf project && node ../../../scripts/project-build.js --project ./project.json",
+    "verify": ""
+  }
+}
