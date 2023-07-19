@@ -1,0 +1,19 @@
+{
+  "name": "airgap-community",
+  "version": "0.0.0",
+  "author": "Papers AG <contact@papers.ch> (https://papers.ch)",
+  "description": "Tools and libraries built for AirGap by 3rd party developers ",
+  "homepage": "https://www.airgap.it",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airgap-it/airgap-community"
+  },
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^7.1.4"
+  }
+}
