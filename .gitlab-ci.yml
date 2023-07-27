@@ -16,7 +16,7 @@ build:
   tags:
     - docker
 
-unit:
+verify:
   stage: verify
   before_script:
     - docker rm -f verify-$CI_COMMIT_SHA || true
