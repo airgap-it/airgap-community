@@ -3,6 +3,7 @@
   "version": "1.0.0-beta.0",
   "description": "Rootstock community isolated module.",
   "homepage": "https://rootstock.io/",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/airgap-it/airgap-community"
@@ -10,5 +11,19 @@
   "scripts": {
     "build": "rm -rf dist && rm -rf project && node ../../../scripts/project-build.js --project ./project.json",
     "verify": "node ../../../scripts/project-verify.js --project ./project.json"
+  },
+  "lerna": {
+    "command": {
+      "publish": {
+        "directory": "dist",
+        "assets": [
+          "package.json",
+          {
+            "from": "project/LICENSE.md",
+            "to": "./"
+          }
+        ]
+      }
+    }
   }
 }
