@@ -6,6 +6,6 @@
     "commit": "e26307fd03cece753c5377e0eb04cb462959e574"
   },
   "signature": "./module.sig",
-  "build": "npm ci && npm run test && npm run build && npm run browserify",
+  "build": "mv README.md readme.md && npm ci && npm run test && npm run build && npm run browserify",
   "manifest": "module/manifest.json"
 }
