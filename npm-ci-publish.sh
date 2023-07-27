@@ -6,9 +6,9 @@ git update-index --assume-unchanged npm-ci-publish-beta-only.sh
 
 git --no-pager diff
 
-VERSION=$(node -pe 'JSON.parse(process.argv[1]).version.indexOf("beta")' "$(cat lerna.json)")
+VERSION=$(node -pe 'JSON.parse(process.argv[1]).every(({ version }) => version.indexOf("beta") !== -1) ? "beta" : "prod"' "$(yarn -s lerna changed --json)")
 
-if [ "$VERSION" = "-1" ]
+if [ "$VERSION" = "prod" ]
 then
   yarn lerna publish from-package --contents dist --yes
 else

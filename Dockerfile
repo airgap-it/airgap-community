@@ -22,7 +22,7 @@ RUN chmod +x ./npm-ci-publish-beta-only.sh
 RUN chmod +x ./npm-ci-publish.sh
 
 # install dependencies
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 # set to production
 RUN export NODE_ENV=production
