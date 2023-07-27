@@ -51,6 +51,8 @@ async function copyBundle(project) {
   const manifestPath = path.join(__gitproject, project.manifest)
   const manifestDir = path.dirname(manifestPath)
   const manifest = require(manifestPath)
+
+  const signaturePath = path.join(__execdirname, project.signature)
   
   const include = manifest.include.map((file) => path.join(manifestDir, file))
 
@@ -59,7 +61,7 @@ async function copyBundle(project) {
     fs.mkdirSync(distDir)
   }
 
-  const copyCmd = `cp ${manifestPath} ${include.join(' ')} ${distDir}`
+  const copyCmd = `cp ${manifestPath} ${include.join(' ')} ${signaturePath} ${distDir}`
 
   log(project, '$', copyCmd)
   await exec(copyCmd, { cwd: __gitproject })

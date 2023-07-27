@@ -18,7 +18,7 @@ function help() {
 
 async function verify(file) {
   const project = require(path.join(__execdirname, file))
-  const signaturePath = path.join(__execdirname, project.signature)
+  const signaturePath = path.join(__dist, path.parse(project.signature).base)
   const manifestPath = path.join(__dist, 'manifest.json')
 
   const manifest = require(manifestPath)
