@@ -3,9 +3,9 @@
   "name": "iso-rootstock",
   "repository": {
     "url": "https://github.com/rsksmart/airgap-iso-rootstock",
-    "commit": "cb141163f7eadf058697b3d1948752a7c145e1d0"
+    "commit": "e26307fd03cece753c5377e0eb04cb462959e574"
   },
   "signature": "./module.sig",
-  "build": "npm install && npm run test && npm run build && npm run browserify",
+  "build": "npm ci && npm run test && npm run build && npm run browserify",
   "manifest": "module/manifest.json"
 }
