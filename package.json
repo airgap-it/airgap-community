@@ -11,9 +11,16 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/isolated-modules/*"
   ],
+  "scripts": {
+    "build": "lerna run build",
+    "verify": "lerna run verify"
+  },
   "devDependencies": {
-    "lerna": "^7.1.4"
+    "@stablelib/ed25519": "^1.0.3",
+    "fs": "^0.0.1-security",
+    "lerna": "^7.1.4",
+    "path": "^0.12.7"
   }
 }

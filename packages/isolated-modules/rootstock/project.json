@@ -1,0 +1,11 @@
+{
+  "$schema": "../../../schemas/project-schema.json",
+  "name": "iso-rootstock",
+  "repository": {
+    "url": "https://github.com/rsksmart/airgap-iso-rootstock",
+    "commit": "261d3bb69d0a57798c8b2deab0d9ea7527e8a826"
+  },
+  "signature": "./module.sig",
+  "build": "npm ci && npm run test && npm run build && npm run browserify",
+  "manifest": "module/manifest.json"
+}
