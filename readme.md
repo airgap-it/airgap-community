@@ -6,7 +6,8 @@ Before any contribution is added, it undergoes a meticulous and rigorous review 
 
 ## Projects
 
-🚧🚧🚧 Stay tuned, new projects are coming! 🚧🚧🚧 
+- [Isolated Modules](https://github.com/airgap-it/airgap-community/tree/main/packages/isolated-modules)
+  - [Rootstock](https://github.com/airgap-it/airgap-community/tree/main/packages/isolated-modules/rootstock)
 
 ## Contributing
 
