@@ -1,0 +1,40 @@
+{
+  "name": "iso-example-bitcoin",
+  "version": "1.0.0",
+  "description": "This is an example of an AirGap Isolated Module.",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf ./dist && tsc && node scripts/copy-files-after-build.js && rm -rf ./module && mkdir module && browserify ./dist/index.js -p esmify --standalone bitcoin > ./module/iso-example-bitcoin.js && cp manifest.template.json module/manifest.json",
+    "build:compile": "rm -rf ./dist && tsc && node scripts/copy-files-after-build.js && browserify ./dist/index.js -p esmify --standalone bitcoin > ./module/iso-example-bitcoin.js",
+    "generate-schemas": "./scripts/generate-schemas.sh",
+    "generate-keypair": "node ./scripts/generate-keypair.js | tee keypair.json",
+    "sign-module": "node ./scripts/sign-module.js"
+  },
+  "dependencies": {
+    "@airgap/crypto": "^0.13.19",
+    "@airgap/module-kit": "^0.13.19",
+    "@airgap/serializer": "^0.13.19",
+    "@bitgo/utxo-lib": "^1.9.6",
+    "axios": "^1.4.0",
+    "bigi": "^1.4.2",
+    "bignumber.js": "^9.1.1",
+    "bitcoinjs-lib": "5.2.0",
+    "bitcoinjs-message": "2.1.1",
+    "bs58check": "^3.0.1",
+    "validate.js": "^0.13.1"
+  },
+  "devDependencies": {
+    "@stablelib/ed25519": "^1.0.3",
+    "@types/node": "14.14.14",
+    "browserify": "^17.0.0",
+    "esmify": "^2.1.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "ts-json-schema-generator": "0.56.0",
+    "typescript": "4.8.4"
+  },
+  "overrides": {
+    "@polkadot/util": "2.3.1"
+  }
+}

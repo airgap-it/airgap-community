@@ -1,0 +1,8 @@
+{
+  "name": "iso-example-bitcoin",
+  "version": "1.0.0",
+  "author": "<author>",
+  "description": "This is an example of an AirGap Isolated Module.",
+  "publicKey": "<pk>",
+  "include": []
+}
